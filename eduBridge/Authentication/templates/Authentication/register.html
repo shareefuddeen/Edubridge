@@ -1,0 +1,43 @@
+{% extends 'Authentication/index.html' %}
+{% load widget_tweaks %}
+{% block content %}
+
+<form method="post" class="form">
+    {% csrf_token %}
+    <p class="title">EduBridge </p>
+    <h6>Signup as a Student. </h6>
+    <div class="flex">
+        <label>
+            {% render_field form.first_name class+="input" %}
+            <span>First name</span>
+        </label>
+
+        <label>
+            {% render_field form.last_name class+="input" %}
+            <span>Last name</span>
+        </label>
+    </div>
+    <label>
+        {% render_field form.username class+="input" %}
+        <span>Username</span>
+    </label>
+
+    <label>
+        {% render_field form.email class+="input" %}
+        <span>Email</span>
+    </label>
+
+    <label>
+        {% render_field form.password1 class+="input" %}
+        <span>Password</span>
+    </label>
+    <label>
+        {% render_field form.password2 class+="input" %}
+        <span>Confirm password</span>
+    </label>
+    <button class="submit">Submit</button>
+    <p class="signin">Already have an acount ? <a href="{% url 'login' %}">Signin</a> </p>
+
+</form>
+
+{% endblock content %}
