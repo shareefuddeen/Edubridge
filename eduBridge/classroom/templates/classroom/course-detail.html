@@ -1,0 +1,15 @@
+{% extends 'classroom/base.html' %}
+
+{% block content %}
+<h2>{{ course.course_name}}</h2>
+<h4>{{ course.course_description}}</h4>
+<p>{{ course.course_creator}}</p>
+{% if request.user.enrollment_set.filter(course=course) %}
+{% for lesson in lessons  %}
+<h4>{{lesson.title}}</h4>
+<p>{{lesson.content}}</p>
+{% endfor %}
+{% else %}
+<a href="{% url 'enroll' course.id %}">Enroll</a>
+{% endif %}
+{% endblock content %}

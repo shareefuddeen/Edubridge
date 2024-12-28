@@ -2,42 +2,41 @@
 {% load widget_tweaks %}
 {% block content %}
 
-<form method="post" class="form">
+<form method="post" class="form1">
+    <div class="register justify-content-center align-items-center my-4">
     {% csrf_token %}
     <p class="title">EduBridge </p>
-    <h6>Signup as a Student. </h6>
-    <div class="flex">
-        <label>
-            {% render_field form.first_name class+="input" %}
-            <span>First name</span>
-        </label>
+    <h6 class="text-center">Signup</h6>
 
-        <label>
-            {% render_field form.last_name class+="input" %}
-            <span>Last name</span>
-        </label>
-    </div>
-    <label>
-        {% render_field form.username class+="input" %}
-        <span>Username</span>
-    </label>
+            <label for="first_name">First name:</label>
+            {% render_field form.first_name class+="form-control" %}
 
-    <label>
-        {% render_field form.email class+="input" %}
-        <span>Email</span>
-    </label>
+            <label for="last_name">Last name:</label>
+            {% render_field form.last_name class+="form-control" %}
 
-    <label>
-        {% render_field form.password1 class+="input" %}
-        <span>Password</span>
-    </label>
-    <label>
-        {% render_field form.password2 class+="input" %}
-        <span>Confirm password</span>
-    </label>
-    <button class="submit">Submit</button>
+    <p style="font-size: 12px;">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</p>
+
+        <label for="username">Username:</label>
+        {% render_field form.username class+="form-control" %}
+    
+        <label for="email">Email:</label>
+        {% render_field form.email class+="form-control" %}
+
+    <p style="font-size: 12px;">Your password can’t be too similar to your other personal information. <br>
+        Your password must contain at least 8 characters.<br>
+        Your password can’t be a commonly used password.<br>
+        Your password can’t be entirely numeric.</p>
+
+        <label for="password1">Password:</label>
+        {% render_field form.password1 class+="form-control" %}
+
+    <p style="font-size: 12px;">Enter the same password as before, for verification. </p>
+
+        <label for="password2">Confirm password:</label>
+        {% render_field form.password2 class+="form-control" %}
+
+    <button class="submit btn-block btn btn-success">Submit</button>
     <p class="signin">Already have an acount ? <a href="{% url 'login' %}">Signin</a> </p>
-
 </form>
-
+</div>
 {% endblock content %}

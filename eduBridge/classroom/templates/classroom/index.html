@@ -1,60 +1,28 @@
 {% extends 'classroom/base.html' %}
 {% load static %}
-
-
 {% block content %}
-<div class="nav">
-	<div class="brand">
-		<a href="{% url 'home' %}"> <img src="{% static 'logo.jpg' %}" class="rounded-circle" alt="logo"></a>
-		<a href="{% url 'home' %}"><h4>EduBridge</h4></a>	
-	</div>
-	<div class="nav-links">
-		<a href="#">Courses</a>
-		<a href="#">Categories</a>
-		<a href="#">Level</a>
-	</div>
-	<div class="form">
-		<div class="con">
-			<table class="tbl">
-				<tr>
-					<td>
-						<input type="text" name="search" placeholder="Search..." class="search">
-					</td>
-					<td>
-						<button class="search-btn">search</button>
-					</td>
-				</tr>
-			</table>
-		</div>
-		{% if request.user.is_authenticated %}
-		<a href="{% url 'logout' %}">Log out</a>
-		{% else %}
-		<a href="{% url 'login' %}">Log in</a>
-		{% endif %}
-	</div>
-</div>
+
+<!-- Hero section -->
 <div class="container">
-	<div class="col ">
-<div class="online">
-	<div class="online-text">
-		<h2 class="display-3">One platform,</h2>
-		<h4 class="display-4">limitless learning</h4>
-		<p>EduBridge is the educational LMS </p>
-		<p>engineered to support students to complete courses.</p>
-		
-		<button class="button">Get started</button>
-	</div>
-	<div class="online-img">
-		<img src="{% static 'Student boy.gif' %}">
-	</div>
-</div>		
-	</div>
+  <div class="col ">
+    <div class="online">
+      <div class="online-text">
+        <h2 >One platform,</h2>
+        <p class="text-muted"><span class="limitless">limitless learning</span><br> EduBridge is the educational LMS <br> engineered to support students to complete courses.</p>
+        <a href="{% url 'register' %}" class="button btn btn-primary btn-xl">Get started</a>
+      </div>
+      <div class="online-img">
+        <img src="{% static 'Student boy.gif' %}">
+      </div>
+    </div>
+  </div>
 </div>
 
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+<!-- image carousel -->
+<div id="carouselExampleSlidesOnly" class="carousel image-carousel block slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="{% static 'less.jpg' %}" class="d-block"  height="564px" width="864px" alt="...">
+      <img src="{% static 'less.jpg' %}" class="d-block" height="564px" width="864px" alt="...">
       <div class="carousel-caption d-none d-md-block">
         <h5>First slide label</h5>
         <p>Some representative placeholder content for the first slide.</p>
@@ -76,187 +44,92 @@
     </div>
   </div>
 </div>
-<div>
-</div>
-<div class="container mt-4">
-			<p class="display-3 text-muted text-center">Key features</p>
-	<div class="col d-flex" >
-		<div class="cards-wrapper1">
-  			<div class="card w-4">
-    			<div class="card-body">
-      				<h5 class="card-title text-center">Progress Tracking</h5>
-      				<div class="card-text">
-      					<ul>
-                  <li>Real-time analytics</li>  
-                  <li>Certificate of completion</li>     
-                </ul>
-      				</div>
-   				</div>
-  		    </div>
-		</div>
-		<div class="cards-wrapper1">
-  			<div class="card">
-    			<div class="card-body">
-      				<h5 class="card-title text-center">Interactive Tools</h5>
-      				<div class="card-text">
-                <ul>
-                  <li>Quizzes and assessments</li>
-                  <li>Discussion forums and peer review</li>
-                </ul>
-      				</div> 
-   				</div>
-  		    </div>
-		</div>
-		<div class="cards-wrapper1">
-  			<div class="card">
-    			<div class="card-body">
-      				<h5 class="card-title text-center">Expert Instructors</h5>
-      					<div class="card-text">
-                  <ul>
-                    <li>1,000+ experienced educators</li>
-                    <li>Live sessions and Q&A</li>
-                  </ul>
-      					</div>
-   				</div>
-  		    </div>
-		</div>
-	</div>
-</div>
 
-<div class="container">
-	<div class="col">
-<div class="time">
-	<div class="time-img">
-		<img src="{% static 'Waiting Girl.gif' %}">
-	</div>
-	<div class="time-text">
-		<h2 class="display-6">The Power of Flexible Course Completion.</h2>
-		<h4 class="display-3">Learn Anytime, Anywhere</h4>
-    <a href="#" >Explore courses</a>
-	</div>
-</div>
-	</div>
-</div>
-<div class="container">
-	<div class="col">
-<div class="create">
-	<div class="create-text">
-		<h2 class="display-6"></h2>
-     
-		<h4 class="display-4"></h4>		
-		<button class="button">Get started</button>
-	</div>
-	<div class="create-img">
-		<img src="{% static 'class.jpg' %}">
-	</div>
-</div>
-	</div>
-</div>
-<p class="display-3 text-muted text-center">Featured courses</p>
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      
-<div class="cards-wrapper">
-  <div class="card">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>
-  <div class="card">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>
-  <div class="card">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>
-</div>
 
-      <div class="carousel-caption d-none d-md-block">
-        <h5>First slide label</h5>
-        <p>Some representative placeholder content for the first slide.</p>
+
+
+<!-- Time section -->
+<section>
+<div class=" block time">
+  <div class="col">
+    <div class="time">
+      <div class="time-img">
+        <img src="{% static 'Waiting Girl.gif' %}">
       </div>
-    </div>
-    <div class="carousel-item">
-
-<div class="cards-wrapper">
-  <div class="card">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>
-  <div class="card">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>
-  <div class="card">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>
-</div>
-
-      <div class="carousel-caption d-none d-md-block">
-        <h5>First slide label</h5>
-        <p>Some representative placeholder content for the first slide.</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      	
-<div class="cards-wrapper">
-  <div class="card">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>
-  <div class="card">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>
-  <div class="card">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>
-</div>
-
-      <div class="carousel-caption d-none d-md-block">
-        <h5>First slide label</h5>
-        <p>Some representative placeholder content for the first slide.</p>
+      <div class="time-text">
+        <h2 class="text-muted">The Power of Flexible Course <br>Completion.</h2>
+        <h1>Learn Anytime,<br> Anywhere</h1>
+        <a href="{% url 'courses' %}">Explore courses</a>
       </div>
     </div>
   </div>
 </div>
+</section>
+
+
+<!-- Key features -->
+<div class="container Key-features block">
+  <p class="display-3 text-muted text-center">Key features</p>
+  <div class="col d-flex">
+    <div class="cards-wrapper1">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title text-center card-heading">Progress Tracking</h5>
+          <div class="card-text">
+            <ul>
+              <li>Real-time analytics</li>
+              <li>Certificate of completion</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cards-wrapper1">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title text-center card-heading">Interactive Tools</h5>
+          <div class="card-text">
+            <ul>
+              <li>Quizzes and assessments</li>
+              <li>Discussion forums and peer review</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cards-wrapper1">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title text-center card-heading">Expert Instructors</h5>
+          <div class="card-text">
+            <ul>
+              <li>1,000+ experienced educators</li>
+              <li>Live sessions and Q&A</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- featured-courses -->
+<section>
+<div class="block flex-block">
+  <p class="display-3 text-muted text-center block">Featured courses</p>
+  <div class="course-flex">
+    {% for course in courses %}
+    <div class="card" style="width: 18rem; height: 23em;" h>
+      <img src="{{course.course_image_cover.url}}" style="height: 11em;" class="card-img-top" alt="...">
+      <div class="card-body text-center">
+        <h5 class="card-title">{{course.course_name}}</h5>
+        <p class="card-text">{{course.course_creator}}</p>
+        <a href="{% url 'course-detail' course.id %}" class="btn btn-primary">view course</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+</section>
+
 {% endblock content %}

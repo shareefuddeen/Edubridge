@@ -1,0 +1,21 @@
+{% extends 'classroom/base.html' %}
+{% load widget_tweaks %}
+{% block content %}
+
+<div class="submit-assignment">
+<div>
+    <h2>{{assignment.title}}</h2>
+    <h5>{{assignment.description}}</h5>
+</div>
+<form method="post">
+    {% csrf_token %}
+ 
+        <div class="form-group">
+            <label for="title">Content:</label>
+            {% render_field form.content class+="form-control" %}
+        </div>
+        
+        <button class="btn">submit</button>
+</form>
+</div>
+{% endblock content %}

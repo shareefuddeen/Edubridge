@@ -1,0 +1,22 @@
+{% extends 'classroom/base.html' %}
+
+{% block content %}
+<section>
+<div class="block ">
+  <p class="display-3 mt-4 text-center block">Featured courses</p>
+  <div class="course-flex courses">
+    {% for course in courses %}
+    <div class="card" style="width: 18rem; height: 23em;" h>
+      <img src="{{course.course_image_cover.url}}" style="height: 11em;" class="card-img-top" alt="...">
+      <div class="card-body text-center">
+        <h5 class="card-title">{{course.course_name}}</h5>
+        <p class="card-text">{{course.course_creator}}</p>
+        <a href="{% url 'course-detail' course.id %}" class="btn btn-primary">view course</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+</section>
+
+{% endblock content %}

@@ -1,0 +1,21 @@
+{% extends 'classroom/base.html' %}
+{% block content %}
+{% for submission in submissions %}
+{% if submission.assignment.instructor == request.user %}
+<div class="submission-list">
+    <div>
+        <h2>title: {{submission.assignment.title}}</h2>
+        <h4>Question: {{ submission.assignment.description}} </h4>
+        {% if not submission.graded %}
+        <a href="{% url 'grade' submission.id %}">Grade</a>
+        {% else %}
+        <h4>Grade: {{submission.grade}}</h4> <h4>{{submission.feedback}}</h4>
+        <h5>{{ submission.student.username }}</h5>
+        <h6>{{ submission.submitted_at }}</h6>
+        {% endif %}
+    </div>
+</div>
+<br>
+{%endif %}
+{% endfor %}
+{% endblock content %}

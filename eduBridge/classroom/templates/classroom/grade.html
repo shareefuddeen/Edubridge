@@ -1,0 +1,32 @@
+{% extends 'classroom/base.html' %}
+{% block content %}
+<div class="grade-container">
+    <div class="grade-headings">
+        <p>details</p>
+        <h1>Name: <span class="small-text">{{submission.student.username}}</span></h1>
+        <h1>Submitted at: <span class="small-text">{{submission.submitted_at}}</span></h1>
+        <h1>Assignment: <span class="small-text">{{submission.assignment}}</span></h1>
+        <h1>Graded: <span class="small-text">{{submission.graded}}</span></h1>
+    </div>
+
+    <form method="post" class="">
+        <div class="form-text">
+            <p>Question and Answer</p>
+            <h1>{{submission.assignment.description}}</h1>
+            <p>{{submission.content}}</p>
+        </div>
+        {% csrf_token %}
+        <div class="grade-form">
+            <div>
+                <label for="grade">Grade:</label>
+                <input class="form-control" type="text" name="grade" placeholder="grade">
+            </div>
+            <div>
+                <label for="feedback">Feedback:</label>
+                <textarea class="form-control" placeholder="feedback" name="feedback" id="feedback"></textarea>
+            </div>
+            <button class="btn btn-secondary btn-block mt-4">Submit</button>
+        </div>
+    </form>
+</div>
+{% endblock content %}

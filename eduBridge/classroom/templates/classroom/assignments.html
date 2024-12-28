@@ -1,0 +1,13 @@
+{% extends 'classroom/base.html' %}
+{% block content %}
+{% for assignment in assignments %}
+<div class="assignment">
+    <h1>{{assignment.Instructor}}</h1>
+    <h2>{{assignment.title}}</h2>
+    <h5>{{assignment.description}}</h5>
+    <h4>{{assignment.created_at}}</h4>
+    <a href="{% url 'submit-assignment' assignment.id %}">Solve</a>
+</div>
+{% endfor %}
+
+{% endblock content %}

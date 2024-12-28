@@ -1,0 +1,11 @@
+{% extends 'classroom/base.html' %}
+
+{% block content %}
+{% if request.user.is_staff %}
+{% endif %}
+<a href="{% url 'create-assignment' %}">create assignment</a><br>
+<a href="{% url 'courses' %}">courses</a><br>
+<a href="{% url 'assignments' %}">Assignments</a><br>
+<a href="{% url 'submission_list' %}">Submissions</a><br>
+<p>{{profiles.username}}</p>
+{% endblock content %}
